@@ -79,6 +79,8 @@ export function express(
 			}),
 		);
 
+		if(!cookies.REPL_AUTH) return next();
+
 		const REPL_AUTH = cookies.REPL_AUTH;
 
 		let user;
