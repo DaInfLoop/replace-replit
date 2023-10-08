@@ -31,14 +31,9 @@ export function express(
 			}
 
 			return res
-				.cookie('REPL_AUTH', REPL_AUTH, {
-					httpOnly: true,
-					secure: true,
-					sameSite: 'none',
-					expires: new Date(user.exp),
-				})
-				.status(204)
-				.end();
+			.cookie('REPL_AUTH', REPL_AUTH)
+			.status(304)
+			.redirect(req.query.redirect);
 		} else if (req.path == '/__replauthuser') {
 			const cookies: { [key: string]: string } = Object.fromEntries(
 				req.headers.cookie.split(';').map((x) => {
