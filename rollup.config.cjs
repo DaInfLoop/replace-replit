@@ -2,6 +2,7 @@ const typescript = require('@rollup/plugin-typescript');
 const { babel } = require('@rollup/plugin-babel');
 const { nodeResolve: resolve } = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
+const json = require('@rollup/plugin-json');
 const { terser } = require('rollup-plugin-terser');
 const dts = require('rollup-plugin-dts').default;
 const del = require('rollup-plugin-delete');
@@ -32,6 +33,7 @@ module.exports = [
 			}),
 			resolve(),
 			commonjs(),
+      json(),
 
 			/* Optionally uncomment the line below
 				 to minify the final bundle: */
