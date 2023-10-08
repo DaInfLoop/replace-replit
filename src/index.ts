@@ -68,6 +68,10 @@ export function express(
 			});
 		}
 
+		if(!req.headers.cookie){
+			return next();
+		}
+
 		const cookies: { [key: string]: string } = Object.fromEntries(
 			req.headers.cookie.split(';').map((x) => {
 				const a = x.trim().split('=');
