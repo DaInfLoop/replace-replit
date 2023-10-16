@@ -61,7 +61,7 @@ app.listen(8000, () => {
 // test.js
 import Database from "@replit/database";
 
-const db = new Database("localhost:8000");
+const db = new Database("http://localhost:8000");
 
 await db.set("hello", "world")
 
